@@ -31,7 +31,7 @@ public class BlogService {
 
         Optional<List<Blog>> blogs = blogRepository.findByUserId(id);
         if(blogs.isPresent()){
-            if(blogs.get().size()>0)
+            if(!blogs.get().isEmpty())
                 return ApiResponse.ok(blogs.get());
             else
                 return ApiResponse.error(200,"No blogs found against this user");

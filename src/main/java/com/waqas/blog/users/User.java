@@ -9,9 +9,8 @@ import java.time.Period;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-
 
     private  String email;
     private String firstName;
@@ -25,7 +24,8 @@ public class User {
 
     private String password;
 
-    public User(String email, String firstName, String lastName, String middleName, LocalDate dob, String occupation, String description,String password) {
+    public User(Long userId,String email, String firstName, String lastName, String middleName, LocalDate dob, String occupation, String description,String password) {
+       this.userId = userId;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,6 +43,14 @@ public class User {
 
     public User() {
 
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getPassword() {
