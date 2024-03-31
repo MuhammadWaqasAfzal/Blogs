@@ -1,11 +1,10 @@
-package com.waqas.blog.user;
+package com.waqas.blog.users;
 
 import com.waqas.blog.reponse.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Executable;
 import java.util.Objects;
 import java.util.Optional;
 

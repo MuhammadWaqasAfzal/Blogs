@@ -2,15 +2,22 @@ package com.waqas.blog.reponse;
 
 import org.springframework.http.HttpStatus;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 public class ApiResponse<T> {
     private int status;
     private String message;
-    private T data;
+    private Map<String, T> data = new HashMap<>();
 
-    public ApiResponse(int status, String message, T data) {
+    public ApiResponse(int status, String message,  T data) {
         this.status = status;
         this.message = message;
-        this.data = data;
+        //this.data = (data == null) ? (T) Collections.emptyMap() : data;
+        this.data.put("result", data == null ? (T) Collections.emptyList() : data);
+
+       // this.data = data;
     }
 
     // Getters and setters
@@ -39,11 +46,11 @@ public class ApiResponse<T> {
         this.message = message;
     }
 
-    public T getData() {
+    public Map<String, T> getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(Map<String, T> data) {
         this.data = data;
     }
 }

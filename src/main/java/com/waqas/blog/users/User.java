@@ -1,8 +1,6 @@
-package com.waqas.blog.user;
+package com.waqas.blog.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -11,6 +9,10 @@ import java.time.Period;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
+
+
     private  String email;
     private String firstName;
     private String lastName;
