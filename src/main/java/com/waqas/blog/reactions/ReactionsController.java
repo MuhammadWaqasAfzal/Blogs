@@ -31,7 +31,7 @@ public class ReactionsController {
         }
     }
 
-    @PostMapping("/getReactionOfPost")
+    @PostMapping("/getReactionOfBlog")
     public ResponseEntity<ApiResponse<?>> getReactionOfPost(@RequestBody Reactions reactions){
         ApiResponse<?> response =  reactionsService.getReactionsOfBlog(reactions);
         if (response.getStatus() == HttpStatus.OK.value()){
